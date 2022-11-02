@@ -9,7 +9,10 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE_URL); 
+mongoose
+     .connect( process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+     .then(() => console.log( 'Database Connected' ))
+     .catch(err => console.log( err ));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
