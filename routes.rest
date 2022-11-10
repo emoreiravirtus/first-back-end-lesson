@@ -1,0 +1,33 @@
+// LOCALHOST
+### List all contacts
+GET http://localhost:3000/contacts 
+
+### Get specific contact
+GET http://localhost:3000/contacts/6362a84a93ae4ea7fbd4fa1f
+
+### Add a contact
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Example",
+    "lastName": "Moreira",
+    "email": "willianWillian@gmail.com",
+    "favoriteColor": "Black",
+    "birthday": "19/04/1997"
+}
+
+### Add a contact
+PUT http://localhost:3000/contacts/6362a84a93ae4ea7fbd4fa1f HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Example2",
+    "lastName": "Moreira",
+    "email": "willianWillian@gmail.com",
+    "favoriteColor": "Black",
+    "birthday": "19/04/1997"
+}
+
+### Delete a contact
+DELETE http://localhost:3000/contacts/636c881f251ed96e9b13724c HTTP/1.1
