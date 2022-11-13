@@ -1,6 +1,6 @@
 'use strict';
 
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
   Contact = mongoose.model('Contacts');
 
 exports.list_all_contacts = function(req, res) {

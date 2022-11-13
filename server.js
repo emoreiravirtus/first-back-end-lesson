@@ -1,6 +1,9 @@
 require('dotenv').config()
 
-var express = require('express'),
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+const express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
@@ -17,6 +20,7 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 var routes = require('./api/routes/contactListRoutes'); //importing route
 routes(app); //register the route
