@@ -7,7 +7,7 @@ const doc = {
         description: "An API to manipulate phone contacts"
     },
     host: process.env.HOST,
-    schemes: ['http'],
+    schemes: [process.env.SCHEME],
 };
 
 const outputFile = './swagger.json';
