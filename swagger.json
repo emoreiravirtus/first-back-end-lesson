@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts List",
-    "description": "An API to manipulate phone contacts",
+    "title": "FootBet",
+    "description": "An API to manipulate soccer stats",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -11,9 +11,9 @@
     "http"
   ],
   "paths": {
-    "/contacts": {
+    "/players": {
       "get": {
-        "description": "",
+        "description": "It returns all players currently on database",
         "parameters": [],
         "responses": {
           "200": {
@@ -22,67 +22,47 @@
         }
       },
       "post": {
-        "description": "",
-        "parameters": [],
+        "description": "It adds a new player to the database",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Player",
+            "description": "The player to add",
+            "required": "true",
+            "schema":
+              {
+                  "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "Lionel Messi"
+                      },
+                      "overall": {
+                        "type": "number",
+                        "example": 91
+                      },
+                      "nacionality": {
+                        "type": "string",
+                        "example": "argentina"
+                      },
+                      "club_id": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "main_position": {
+                        "type": "string",
+                        "example": "CF"
+                      },
+                      "photo": {
+                        "type": "string",
+                        "example": "data:image/png;base64..."
+                      }
+                  }
+              }
+          }
+        ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/contacts/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "204": {
-            "description": "No Content"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
+            "description": "success"
           }
         }
       }

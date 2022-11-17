@@ -3,27 +3,30 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var ContactSchema = new Schema({
-  firstName: {
+var PlayerSchema = new Schema({
+  name: {
     type: String,
     required: 'enter firstName'
   },
-  lastName: {
-    type: String,
+  overall: {
+    type: Number,
     required: 'enter lastName'
   },
-  email: {
+  nacionality: {
     type: String,
     required: 'enter email'
   },
-  favoriteColor: {
-    type: String,
+  club_id: {
+    type: Number,
     required: 'Enter favoriteColor'
   },
-  birthday: {
+  main_position: {
     type: String,
     required: 'Enter birthday'
   },
+  photo: {
+    type: String
+  },
 });
 
-module.exports = mongoose.model('Contacts', ContactSchema);
+module.exports = mongoose.model('Players', PlayerSchema);

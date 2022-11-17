@@ -3,14 +3,14 @@ const swaggerAutogen = require('swagger-autogen');
 
 const doc = {
     info: {
-        title: "Contacts List",
-        description: "An API to manipulate phone contacts"
+        title: "FootBet",
+        description: "An API to manipulate soccer stats"
     },
     host: process.env.HOST,
     schemes: [process.env.SCHEME],
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./api/routes/contactListRoutes.js'];
+const endpointsFiles = ['./api/routes/routes.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
