@@ -5,10 +5,10 @@
     "description": "An API to manipulate soccer stats",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "foot-bet-backend-lesson.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/players": {

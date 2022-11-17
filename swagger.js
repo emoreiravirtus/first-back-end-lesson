@@ -6,7 +6,7 @@ const doc = {
         title: "FootBet",
         description: "An API to manipulate soccer stats"
     },
-    host: "foot-bet-backend-lesson.onrender.com",
+    host: process.env.HOST,
     schemes: [process.env.SCHEME],
 };
 
