@@ -6,23 +6,23 @@ var Schema = mongoose.Schema;
 var PlayerSchema = new Schema({
   name: {
     type: String,
-    required: 'enter firstName'
+    required: 'enter name'
   },
   overall: {
     type: Number,
-    required: 'enter lastName'
+    required: 'enter overall'
   },
   nacionality: {
     type: String,
-    required: 'enter email'
+    required: 'enter nacionality'
   },
   club_id: {
     type: Number,
-    required: 'Enter favoriteColor'
+    required: 'enter club_id'
   },
   main_position: {
     type: String,
-    required: 'Enter birthday'
+    required: 'enter main_position'
   },
   photo: {
     type: String

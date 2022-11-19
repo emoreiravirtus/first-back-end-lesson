@@ -6,4 +6,8 @@ module.exports = function(app) {
   app.route('/players')
     .get(players.list_all_players)
     .post(players.add_a_player);
+
+  app.route('/players/:id')
+    .put(players.update_a_player)
+    .delete(players.delete_a_player);
 };
