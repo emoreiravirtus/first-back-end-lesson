@@ -2,7 +2,7 @@ const container = document.getElementById('container');
 console.log(container);
 
 const getPlayers = () => {
-    const players = fetch('http://localhost:3000/players')
+    const players = fetch('https://foot-bet-backend-lesson.onrender.com/players')
         .then(response => response.json())
         .then(data => data);
     return players;
