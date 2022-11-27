@@ -1,17 +1,37 @@
 const container = document.getElementById('container');
-console.log(container);
 
-const getPlayers = () => {
-    const players = fetch('https://foot-bet-backend-lesson.onrender.com/players')
+let user = prompt("user name");
+let password = prompt("password");
+
+const getJWT = () => {
+    console.log(user, password);
+    const jwt = fetch('https://foot-bet-backend-lesson.onrender.com/login', {
+        method: 'POST',
+        body: JSON.stringify({
+            user,
+            password
+        })
+    })
+    .then(response => response.json())
+    .then(data => data)
+    return jwt
+}
+const getPlayers = (jwt) => {
+    console.log(jwt);
+    const players = fetch('https://foot-bet-backend-lesson.onrender.com/players', {
+        headers: {
+            'x-access-token': jwt.token
+        }
+    })
         .then(response => response.json())
         .then(data => data);
     return players;
 }
 
 const init = async () => {
-    const players = await getPlayers();
+    const jwt = await getJWT();
+    const players = await getPlayers(jwt);
     
-    console.log(players)
     for(player of players) {
         container.innerHTML += `
             <div class="player-card">

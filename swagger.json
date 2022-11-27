@@ -11,10 +11,56 @@
     "https"
   ],
   "paths": {
+    "/login": {
+      "post": {
+        "description": "It returns a token so the user is able to use the other routes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "User Data",
+            "description": "User name and password",
+            "required": true,
+            "schema": {
+              "properties": {
+                "user": {
+                  "type": "string",
+                  "example": "anyUser123"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "anyPassword123"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "It will return a token to put into the other requests headers"
+          }
+        }
+      }
+    },
     "/players": {
       "get": {
         "description": "It returns all players currently on database",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "The token generated in /login endpoint",
+            "required": true,
+            "schema": {
+              "properties": {
+                "x-access-token": {
+                  "type": "string",
+                  "example": "eyJhbaGciOiJIUzI1NddiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzgyYzfY1MGJjOGYyYWE4fdNGExYTczODIiLCJpYXQiOjEf2Njk1MjAxNDIsImV4cCI6MTY2OTUyMDQ0Mn0.zNM-PkImqnBjfytHeEX1POxze9GGo5_mK_gqS5Y2urs"
+                }
+              }
+            }
+
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -58,6 +104,21 @@
                       }
                   }
               }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "The token generated in /login endpoint",
+            "required": true,
+            "schema": {
+              "properties": {
+                "x-access-token": {
+                  "type": "string",
+                  "example": "eyJhbaGciOiJIUzI1NddiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzgyYzfY1MGJjOGYyYWE4fdNGExYTczODIiLCJpYXQiOjEf2Njk1MjAxNDIsImV4cCI6MTY2OTUyMDQ0Mn0.zNM-PkImqnBjfytHeEX1POxze9GGo5_mK_gqS5Y2urs"
+                }
+              }
+            }
+
           }
         ],
         "responses": {
@@ -78,6 +139,21 @@
             "required": "true",
             "description": "Numeric ID of the player to delete"
           }
+        },
+        {
+          "in": "header",
+          "name": "x-access-token",
+          "description": "The token generated in /login endpoint",
+          "required": true,
+          "schema": {
+            "properties": {
+              "x-access-token": {
+                "type": "string",
+                "example": "eyJhbaGciOiJIUzI1NddiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzgyYzfY1MGJjOGYyYWE4fdNGExYTczODIiLCJpYXQiOjEf2Njk1MjAxNDIsImV4cCI6MTY2OTUyMDQ0Mn0.zNM-PkImqnBjfytHeEX1POxze9GGo5_mK_gqS5Y2urs"
+              }
+            }
+          }
+
         }
         ],
         "responses": {
@@ -133,6 +209,21 @@
                       }
                   }
               }
+          },
+          {
+            "in": "header",
+            "name": "x-access-token",
+            "description": "The token generated in /login endpoint",
+            "required": true,
+            "schema": {
+              "properties": {
+                "x-access-token": {
+                  "type": "string",
+                  "example": "eyJhbaGciOiJIUzI1NddiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzgyYzfY1MGJjOGYyYWE4fdNGExYTczODIiLCJpYXQiOjEf2Njk1MjAxNDIsImV4cCI6MTY2OTUyMDQ0Mn0.zNM-PkImqnBjfytHeEX1POxze9GGo5_mK_gqS5Y2urs"
+                }
+              }
+            }
+
           }
         ],
         "responses": {

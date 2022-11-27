@@ -7,7 +7,6 @@ const express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Task = require('./api/models/playersModel'), //created model loading here
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
@@ -16,6 +15,9 @@ mongoose
      .connect( process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
      .then(() => console.log( 'Database Connected' ))
      .catch(err => console.log( err ));
+
+require('./api/models/playersModel'),
+require('./api/models/usersModel'),
 
 
 app.use(express.static(__dirname + '/frontend'));
